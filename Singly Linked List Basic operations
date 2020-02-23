@@ -1,0 +1,97 @@
+import java.util.*;
+class Node{
+int data;
+Node next;
+}
+class Main{
+static Node head=null,tail=null;
+static Scanner sc=new Scanner(System.in);
+static void create()
+{
+System.out.println("Enter total number of nodes");
+int n=sc.nextInt();
+for(int i=0;i<n;i++)
+{
+Node temp=new Node();
+System.out.println("Enter data");
+temp.data=sc.nextInt();
+temp.next=null;
+if(head==null)
+head=tail=temp;
+else{
+tail.next=temp;
+tail=temp;}
+}
+}
+static void display()
+{
+if(head==null)
+System.out.println("List Empty");
+else
+{
+Node temp;
+temp=head;
+while(temp!=null)
+{
+System.out.print(temp.data+" ");
+temp=temp.next;
+}
+System.out.println();
+}
+}
+static void Ins_B()
+{
+Node temp=new Node();
+System.out.println("Enter data");
+temp.data=sc.nextInt();
+temp.next=null;
+if(head==null)
+head=tail=temp;
+else
+{
+temp.next=head;
+head=temp;
+}
+}
+static void Del_t()
+{
+Node temp=head;
+if(head==tail)
+head=tail=null;
+else if(head!=tail)
+{
+while(temp.next!=tail)
+{
+temp=temp.next;
+}
+tail=temp;
+tail.next=null;
+}
+else
+System.out.println("List is empty");
+}
+public static void main(String args[]){
+create();
+display();
+int ch,p;
+while(true)
+{
+System.out.println("Enter choice \n 1.Insert at Begining \n 2. Delete Tail
+\n 3. Exit");
+ch=sc.nextInt();
+switch(ch)
+{
+case 1: Ins_B();
+display();
+break;
+case 2: Del_t();
+display();
+break;
+case 3: System.exit(0);
+break;
+default: System.out.println("Invalid choice");
+break;
+}
+}
+}
+}

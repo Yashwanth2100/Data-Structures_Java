@@ -15,15 +15,15 @@ public class Main
 	public Node temp,current;
 	public void insertbeg(int data)
 	{ 
-	    Node p= new Node(data);
+	    Node p= new Node(data);//p is new Node
 	    if(head==null)
 	    {
-	        head=p;
-	        tail=p;
+	        head=p;//p is new Node
+	        tail=p;//p is new Node
 	    }
 	    else 
 	    { temp=head;
-	    head = p;
+	    head = p;//p is new Node
 	    head.next=temp;
 	}
 	}
@@ -44,17 +44,17 @@ public void display()
 	    }
 public void insertend(int data)
 	    {
-	         Node p= new Node(data);
+	         Node p= new Node(data);//p=new Node
 	         if(head==null)
 	         {
 	             System.out.print("empty");
-	             head=p;
-	             tail=p;
+	             head=p;//p is new Node
+	             tail=p;//p is new Node
 	         }
 	         else
 	         {
-	             tail.next=p;
-	             tail=p;
+	             tail.next=p;//p is new Node
+	             tail=p;//p is new Node
 	       }
 	       size++;
 	    }
@@ -63,8 +63,8 @@ public void insertmid(int data)
 	         Node p= new Node(data);
 	         if(head==null)
 	         {
-	             head=p;
-	             tail=p;
+	             head=p;//p is new Node
+	             tail=p;//p is new Node
 	         }
 	         else
 	         {int count = (size % 2==0 )? (size/2):((size-1)/2);
@@ -78,8 +78,8 @@ public void insertmid(int data)
 	                 temp=temp.next;
 	                 
 	             }
-	             current.next = p;
-	             p.next = temp;
+	             current.next = p;//p is new Node
+	             p.next = temp;//p is new Node
 	          }
 	          size++;
 	             

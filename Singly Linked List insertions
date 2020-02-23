@@ -1,0 +1,131 @@
+import java.util.*;
+public class Main
+{class Node{
+    Node next;
+    int data;
+    public Node(int data)
+    {
+        this.data=data;
+        this.next =null;
+        
+    }
+}   public int size;
+	public Node head=null;
+	public Node tail=null;
+	public Node temp,current;
+	public void insertbeg(int data)
+	{ 
+	    Node p= new Node(data);
+	    if(head==null)
+	    {
+	        head=p;
+	        tail=p;
+	    }
+	    else 
+	    { temp=head;
+	    head = p;
+	    head.next=temp;
+	}
+	}
+public void display()
+	{
+	    Node current=head;
+	    if(head==null)
+	    {
+	        System.out.println("empty");
+	        return;
+	    }
+	    while(current!=null)
+	    {
+	        System.out.println(" "+" "+current.data+" ");
+	        current=current.next;
+	    }
+	   
+	    }
+public void insertend(int data)
+	    {
+	         Node p= new Node(data);
+	         if(head==null)
+	         {
+	             System.out.print("empty");
+	             head=p;
+	             tail=p;
+	         }
+	         else
+	         {
+	             tail.next=p;
+	             tail=p;
+	       }
+	       size++;
+	    }
+public void insertmid(int data)
+	    {
+	         Node p= new Node(data);
+	         if(head==null)
+	         {
+	             head=p;
+	             tail=p;
+	         }
+	         else
+	         {int count = (size % 2==0 )? (size/2):((size-1)/2);
+	          if(head!=null)
+	          {
+	              temp=head;
+	              current=null;
+	             for(int i=0;i<=count;i++)
+	             {
+	                 current=temp;
+	                 temp=temp.next;
+	                 
+	             }
+	             current.next = p;
+	             p.next = temp;
+	          }
+	          size++;
+	             
+	         }
+	    }
+public static void main(String[] args) {
+	             Scanner in =new Scanner (System.in);
+	         Main sList= new Main();
+	            while(true){
+    System.out.println("Enter Operation of Linked list");
+    System.out.println("1.insert at begining \n2.insert at middle \n3.insert at end \n4.display \n5.Exit");
+    int opt = in.nextInt();
+    if (opt >5 )
+    {System.out.println("Invalid input");}
+    else
+    {
+    switch (opt) {
+        case 1:
+            System.out.println("Enter data of new node to be created at beginnig");
+            int v=in.nextInt();
+            sList.insertbeg(v);
+            
+            break;
+        case 2:
+            System.out.println("Enter data of new node to be created at middle");
+            int n=in.nextInt();
+            sList.insertmid(n);
+           
+            break;
+        case 3:
+            System.out.println("Enter data of new node to be created at end");
+            int m= in.nextInt();
+            sList.insertend(m);
+            
+            break;
+        case 4:
+            sList.display();
+        case 5:
+            System.out.println("Exit");
+            System.exit(0);
+            break;
+            default:
+            break;
+	         }
+    }System.out.println("Data after adding node") ;
+    sList.display();
+	            } 
+	   
+}}

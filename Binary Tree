@@ -1,0 +1,68 @@
+package com.company;
+import java.util.Scanner;
+class Node {
+    Node left,right;
+    int data;
+}
+class Main{
+    static Scanner in= new Scanner (System.in);
+    static Node create(){
+        Node root =new Node();
+        System.out.println("Enter current node data");
+        root.data=in.nextInt();
+        System.out.println("inserted as left child = "+root.data);
+        char ch;
+        ch=in.next().charAt(0);
+        if(ch=='y' || ch=='Y')
+        {
+            root.left=create();
+        }
+        else
+        {   root.left=null;
+          System.out.println("insert as right child = "+root.data);
+        }
+        ch=in.next().charAt(0);
+        if(ch=='y' || ch=='Y')
+        {
+            root.right=create();
+        }
+        else
+        {   root.right=null;
+        }
+            return root;
+    }
+    static void inorder(Node root)
+    {
+        if (root!=null) {
+            inorder(root.left);
+            System.out.println(root.data + " ");
+           inorder( root.right);
+        }
+    }
+    static void preorder(Node root)
+    {
+        if (root!=null) {
+            System.out.println(root.data + " ");
+            preorder(root.left);
+            preorder(root.right);
+        }
+    }
+    static void postorder(Node root)
+    {
+        if (root!=null)
+        postorder(root.left);
+        postorder(root.right);
+        System.out.println(root.data+" ");
+    }
+    public static void main(String[]args)
+    {
+        Node root;
+        root=create();
+        System.out.print("inorder"+" ");
+        inorder(root);
+        System.out.print("preorder"+" ");
+        preorder(root);
+        System.out.print("postorder"+" ");
+        postorder(root);
+    }
+}
